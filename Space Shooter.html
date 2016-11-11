@@ -1,0 +1,347 @@
+<!DOCTYPE HTML>
+
+<HEAD>
+		<title>Space Red</title>
+</HEAD>
+
+<BODY>
+	
+	<CENTER>
+		
+		<CANVAS width="800" height="600" id="main" style="border:2px solid #F00;"></CANVAS>
+	
+	</CENTER>
+	
+		<script type="text/javascript" src="JS/MySprite.js"></script>
+		<script type="text/javascript" src="JS/Botao.js"></script>
+		<script type="text/javascript" src="JS/Introducao.js"></script>
+		<script type="text/javascript" src="JS/Menu.js"></script>
+		<script type="text/javascript" src="JS/Instrucoes.js"></script>
+		<script type="text/javascript" src="JS/Creditos.js"></script>
+		<script type="text/javascript" src="JS/Level01.js"></script>
+		<script type="text/javascript" src="JS/Level02.js"></script>
+		<script type="text/javascript" src="JS/Ganhou.js"></script>
+		<script type="text/javascript" src="JS/Morreu.js"></script>
+	
+
+	<script>
+		
+		//criando canvas e janela de desenho
+		var canvas = document.getElementById("main");
+		var screen = canvas.getContext("2d");
+		
+		//Enumerador da cena
+		var cena = {INTRODUCAO:0, MENU:1, INSTRUCOES:2, CREDITOS:3, LEVEL01:4, LEVEL02:5, GANHOU:6, MORREU:7};
+		
+		//variavel da cena atual
+		var cenaAtual = cena.INTRODUCAO;
+		
+		//instanciando as cenas... obs: instanciar-criar um objeto de uma classe
+		var introducao = new Introducao(); 
+		var menu = new Menu();
+		var instrucoes = new Instrucoes();
+		var creditos = new Creditos();
+		var level01 = new Level01();
+		var level02 = new Level02();
+		var ganhou = new Ganhou();
+		var morreu = new Morreu(); 
+	
+		//quando for um objeto-é minusculo , quando for uma classe- é maiusculo
+	
+	
+	function Load()
+	{
+	
+		Loop();
+	
+	}
+	
+	
+	Load();
+	
+	
+	
+	function Loop()
+	{
+	
+		//clear();
+		screen.clearRect(0, 0, canvas.width, canvas.height);
+	
+		
+			switch(cenaAtual)
+			{
+		
+				case cena.INTRODUCAO:
+					introducao.Update();
+					introducao.Draw();
+					break;
+				
+				case cena.MENU:
+					menu.Update();
+					menu.Draw();
+					break;
+				
+				case cena.INSTRUCOES:
+					instrucoes.Update();
+					instrucoes.Draw();
+					break;
+				
+				case cena.CREDITOS:
+					creditos.Update();
+					creditos.Draw();
+					break;
+				
+				case cena.LEVEL01:
+					level01.Update();
+					level01.Draw();
+					break;
+				
+				case cena.LEVEL02:
+					level02.Update();
+					level02.Draw();
+					break;
+				
+				case cena.GANHOU:
+					ganhou.Update();
+					ganhou.Draw();
+					break;
+				
+				case cena.MORREU:
+					morreu.Update();
+					morreu.Draw();
+					break;
+				
+		
+			}
+	
+		//repetir o Loop a cada 30 milissegundos
+		setTimeout(Loop,30);
+	
+	}
+	
+	//classe interna de mouse_down
+	this.mouse_down =function(mouse)
+	{
+	
+		
+			switch(cenaAtual)
+			{
+		
+				case cena.INTRODUCAO:
+					introducao.mouse_down(mouse);
+					break;
+				
+				case cena.MENU:
+					menu.mouse_down(mouse);
+					break;
+				
+				case cena.INSTRUCOES:
+					instrucoes.mouse_down(mouse);
+					break;
+				
+				case cena.CREDITOS:
+					creditos.mouse_down(mouse);
+					break;
+				
+				case cena.LEVEL01:
+					level01.mouse_down(mouse);
+					break;
+				
+				case cena.LEVEL02:
+					level02.mouse_down(mouse);
+					break;
+					
+				case cena.GANHOU:
+					ganhou.mouse_down(mouse);
+					break;
+				
+				case cena.MORREU:
+					morreu.mouse_down(mouse);
+					break;
+				
+		
+			}
+	
+	};
+		
+	
+		//mesma coisa para o mouse_up
+	this.mouse_up = function(mouse)
+	{
+		
+			switch(cenaAtual)
+			{
+		
+				case cena.INTRODUCAO:
+					introducao.mouse_up(mouse);
+					break;
+				
+				case cena.MENU:
+					menu.mouse_up(mouse);
+					break;
+				
+				case cena.INSTRUCOES:
+					instrucoes.mouse_up(mouse);
+					break;
+				
+				case cena.CREDITOS:
+					creditos.mouse_up(mouse);
+					break;
+				
+				case cena.LEVEL01:
+					level01.mouse_up(mouse);
+					break;
+				
+				case cena.LEVEL02:
+					level02.mouse_up(mouse);
+					break;
+					
+				case cena.GANHOU:
+					ganhou.mouse_up(mouse);
+					break;
+				
+				case cena.MORREU:
+					morreu.mouse_up(mouse);
+					break;
+					
+		
+			}
+		
+	};
+	
+	this.mouse_move = function(mouse)
+	{
+	
+			switch(cenaAtual)
+			{
+		
+				case cena.INTRODUCAO:
+					introducao.mouse_move(mouse);
+					break;
+				
+				case cena.MENU:
+					menu.mouse_move(mouse);
+					break;
+				
+				case cena.INSTRUCOES:
+					instrucoes.mouse_move(mouse);
+					break;
+				
+				case cena.CREDITOS:
+					creditos.mouse_move(mouse);
+					break;
+				
+				case cena.LEVEL01:
+					level01.mouse_move(mouse);
+					break;
+				
+				case cena.LEVEL02:
+					level02.mouse_move(mouse);
+					break;
+					
+				case cena.GANHOU:
+					ganhou.mouse_move(mouse);
+					break;
+				
+				case cena.MORREU:
+					morreu.mouse_move(mouse);
+					break;
+					
+			}
+	
+	};
+	
+	this.key_down = function(key)
+	{
+		
+			switch(cenaAtual)
+			{
+		
+				case cena.INTRODUCAO:
+					introducao.key_down(key);
+					break;
+				
+				case cena.MENU:
+					menu.key_down(key);
+					break;
+				
+				case cena.INSTRUCOES:
+					instrucoes.key_down(key);
+					break;
+				
+				case cena.CREDITOS:
+					creditos.key_down(key);
+					break;
+				
+				case cena.LEVEL01:
+					level01.key_down(key);
+					break;
+				
+				case cena.LEVEL02:
+					level02.key_down(key);
+					break;
+					
+				case cena.GANHOU:
+					ganhou.key_down(key);
+					break;
+				
+				case cena.MORREU:
+					morreu.key_down(key);
+					break;
+			}
+	
+	};
+	
+	
+	this.key_up = function(key)
+	{
+		
+			switch(cenaAtual)
+			{
+		
+				case cena.INTRODUCAO:
+					introducao.key_up(key);
+					break;
+				
+				case cena.MENU:
+					menu.key_up(key);
+					break;
+				
+				case cena.INSTRUCOES:
+					instrucoes.key_up(key);
+					break;
+				
+				case cena.CREDITOS:
+					creditos.key_up(key);
+					break;
+				
+				case cena.LEVEL01:
+					level01.key_up(key);
+					break;
+				
+				case cena.LEVEL02:
+					level02.key_up(key);
+					break;
+					
+				case cena.GANHOU:
+					ganhou.key_up(key);
+					break;
+				
+				case cena.MORREU:
+					morreu.key_up(key);
+					break;
+			}
+	
+	};
+		//chamando evento depois da referencia do mouse_down na cenaAtual
+		window.addEventListener("mousedown", mouse_down, true);
+		window.addEventListener("mouseup", mouse_up, true);
+		window.addEventListener("mousemove", mouse_move, true);
+		window.addEventListener("keydown", key_down, true);
+		window.addEventListener("keyup", key_up,true);
+		//TODO key_down,key_up e mouse_down, mouse_move (mesma coisa)...
+	
+	</script>
+
+</BODY>	
+</HTML>	
